@@ -1,8 +1,10 @@
+# Spotify Data Parser
+
 Extract your Spotify streaming history, connect to the Spotify API to acquire the songs' features, and organize everything into a handy .csv file. 
 
-Medium article: https://towardsdatascience.com/get-your-spotify-streaming-history-with-python-d5a208bbcbd3
+Medium article from original author: https://towardsdatascience.com/get-your-spotify-streaming-history-with-python-d5a208bbcbd3
 
-Dependencies:
+## Dependencies:
 
 <ul>
 <li>Pandas: https://pandas.pydata.org/</li>
@@ -10,7 +12,7 @@ Dependencies:
 <li>Requests: https://requests.readthedocs.io/en/master/</li>
 </ul>
 
-Instructions:
+# Instructions:
 
 ## Virtual Environment Setup
   
