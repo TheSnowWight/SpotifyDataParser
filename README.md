@@ -6,15 +6,28 @@ Dependencies:
 
 <ul>
 <li>Pandas: https://pandas.pydata.org/</li>
-<li>Spotipy: https://spotipy.readthedocs.io/en/2.7.1/</li>
+<li>Spotipy: https://spotipy.readthedocs.io/</li>
 <li>Requests: https://requests.readthedocs.io/en/master/</li>
 </ul>
 
 Instructions:
 
+0. Setup a venv environment, clone repo and prepare to fill in config.py with the information from following steps
+
+  # macOS/Linux - You may need to run sudo apt-get install python3-venv first
+  python3 -m venv .venv-ChooseName
+
+  # Open the venv
+  git clone https://github.com/Username/Repositoryname.git
+
+  # Install requirements
+  pip install -r requirements.txt
+
 1. Enter your account dashboard at https://www.spotify.com/. In the privacy settings, apply for the download of your personal data. This might take a few days. When you get the mail, download the zip archive and place the MyData folder into the script folder. 
 
 2. Sign up at Spotify for Developers at https://developer.spotify.com/. Select 'Create an app'. From the app panel, take note of your Client ID and Client Secret. Then select 'Edit settings' and whitelist a link in Redirect URIs. If you don't have a site, http://localhost:portnumber/callback will do. Take note of this link too.
+
+Note! Keep these values as safe or safer as your Spotify login information
 
 3. Open config.py and insert your Spotify username, Client ID, Client Secret and Redirect URI. You can leave the scope as is.
 
