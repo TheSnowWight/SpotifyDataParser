@@ -14,7 +14,7 @@ Instructions:
 
 1. Enter your account dashboard at https://www.spotify.com/. In the privacy settings, apply for the download of your personal data. This might take a few days. When you get the mail, download the zip archive and place the MyData folder into the script folder. 
 
-2. Sign up at Spotify for Developers at https://developer.spotify.com/. Select 'Create an app'. From the app panel, take note of your Client ID and Client Secret. Then select 'Edit settings' and whitelist a link in Redirect URIs. If you don't have a site, http://localhost:7777/callback will do. Take note of this link too.
+2. Sign up at Spotify for Developers at https://developer.spotify.com/. Select 'Create an app'. From the app panel, take note of your Client ID and Client Secret. Then select 'Edit settings' and whitelist a link in Redirect URIs. If you don't have a site, http://localhost:portnumber/callback will do. Take note of this link too.
 
 3. Open config.py and insert your Spotify username, Client ID, Client Secret and Redirect URI. You can leave the scope as is.
 
