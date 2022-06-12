@@ -12,16 +12,20 @@ Dependencies:
 
 Instructions:
 
-0. Setup a venv environment, clone repo and prepare to fill in config.py with the information from following steps
+## Virtual Environment Setup
+  
+  Setup a venv environment, clone repo and prepare to fill in config.py with the information from following steps
 
-  # macOS/Linux - You may need to run sudo apt-get install python3-venv first
+  ### macOS/Linux - You may need to run sudo apt-get install python3-venv first
   python3 -m venv .venv-ChooseName
 
-  # Open the venv
+  ### Open the venv
   git clone https://github.com/Username/Repositoryname.git
 
-  # Install requirements
+  ### Install requirements
   pip install -r requirements.txt
+
+## Getting the App to run
 
 1. Enter your account dashboard at https://www.spotify.com/. In the privacy settings, apply for the download of your personal data. This might take a few days. When you get the mail, download the zip archive and place the MyData folder into the script folder. 
 
