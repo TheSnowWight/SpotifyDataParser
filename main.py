@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jan 29 10:29:55 2020
-
-@author: vlad
+Orig @author: vlad
+Modified: tsw
 """
 
 import history
@@ -13,29 +12,29 @@ from config import *
 
 def main():
 
-    #recover streamings history
+    # Recover streamings history
     token = history.get_token(username, client_id, 
                               client_secret, redirect_uri, scope)
     
     streamings = history.get_streamings()
     print(f'Recovered {len(streamings)} streamings.')
     
-    #getting a list of unique tracks in our history
+    # Getting a list of unique tracks in our history
     # Add artist names too as multiple artist can have same song name
     tracks = set([f"{streaming['trackName']}___{streaming['artistName']}" for streaming in streamings])
     print(f'Discovered {len(tracks)} unique tracks.')
     
-    #getting saved ids for tracks
+    # Getting saved ids for tracks
     track_ids = history.get_saved_ids(tracks)
     
-    #checking tracks that still miss idd
+    # Checking tracks that still miss idd
     tracks_missing_idd = len([track for track in tracks if track_ids.get(track) is None])
     print(f'There are {tracks_missing_idd} tracks missing ID.')
     
     if tracks_missing_idd > 0:
-        #using spotify API to recover track ids
-        #note: this methods works only for tracks. 
-        #podcasts and other items will be ignored.
+        # Using spotify API to recover track ids
+        # Note: this methods works only for tracks. 
+        # Podcasts and other items will be ignored.
         print('Connecting to Spotify to recover tracks IDs.')
         sleep(3)
         id_length = 22
@@ -48,30 +47,30 @@ def main():
                 except:
                     pass
         
-        #how many tracks did we identify? 
+        # How many tracks did we identify? 
         identified_tracks = [track for track in track_ids
                          if track_ids[track] is not None]
         print(f'Successfully recovered the ID of {len(identified_tracks)} tracks.')
         
-        #how many items did we fail to identify? 
+        # How many items did we fail to identify? 
         n_tracks_without_id = len(track_ids) - len(identified_tracks)
         print(f"Failed to identify {n_tracks_without_id} items. "
               "However, some of these may not be tracks (e.g. podcasts).")
         
-        #using pandas to save tracks ids (so we don't have to API them in the future)
+        # Using pandas to save tracks ids (so we don't have to API them in the future)
         ids_path = 'output/track_ids.csv'
         ids_dataframe = pd.DataFrame.from_dict(track_ids, 
                                                orient = 'index')
         ids_dataframe.to_csv(ids_path)
         print(f'track ids saved to {ids_path}.')
     
-    #recovering saved features
+    # Recovering saved features
     track_features = history.get_saved_features(tracks)
     tracks_without_features = [track for track in tracks if track_features.get(track) is None]
     print(f"There are still {len(tracks_without_features)} tracks without features.")
     path = 'output/features.csv'
     
-    #connecting to spotify API to retrieve missing features
+    # Connecting to spotify API to retrieve missing features
     if len (tracks_without_features):
         print('Connecting to Spotify to extract features...')
         acquired = 0
@@ -91,12 +90,12 @@ def main():
         if len(tracks_without_features):
             print(f'Failed to identify {len(tracks_without_features)} items. Some of these may not be tracks.')
         
-        #saving features 
+        # Saving features 
         features_dataframe = pd.DataFrame(track_features).T
         features_dataframe.to_csv(path)
         print(f'Saved features to {path}.')
     
-    #joining features and streamings
+    # Joining features and streamings
     print('Adding features to streamings...')
     streamings_with_features = []
     for streaming in sorted(streamings, key= lambda x: x['endTime']):
