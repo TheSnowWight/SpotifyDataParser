@@ -1,7 +1,5 @@
-"""
-Orig @author: vlad
-Forked by: tsw
-"""
+# Orig @author: vlad
+# Modified: tsw
 
 # Insert local parameters
 # Browsers can be unhappy about uncommon web ports
