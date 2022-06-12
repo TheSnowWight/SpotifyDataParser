@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 27 18:41:32 2020
-
-@author: vlad
+Orig @author: vlad
+Modified: tsw
 """
 
 import ast
@@ -30,8 +29,8 @@ def get_token(user: str,
 def get_streamings(path: str = 'MyData', 
                 ) -> List[dict]:
     
-    '''Returns a list of streamings form spotify MyData dump.
-    Will not acquire track features.'''
+    # Returns a list of streamings form spotify MyData dump.
+    # Will not acquire track features.
     
     files = ['MyData/' + x for x in listdir(path)
              if x.split('.')[0][:-1] == 'StreamingHistory']
@@ -51,8 +50,8 @@ def get_streamings(path: str = 'MyData',
 def get_api_id(track_info: str, token: str,
                 artist: str = None) -> str:
     
-    '''Performs a query on Spotify API to get a track ID.
-    See https://curl.trillworks.com/'''
+    # Performs a query on Spotify API to get a track ID.
+    # See https://curl.trillworks.com/
 
     headers = {
     'Accept': 'application/json',
@@ -75,7 +74,7 @@ def get_api_id(track_info: str, token: str,
         results = json['tracks']['items']
         first_result = json['tracks']['items'][0]
         # Check if searched artist is in response as the first one isn't
-        # necessarily the right one
+        # Necessarily the right one
         if artist:
             for result in results:
                 if artist.strip() == result['artists'][0]['name'].strip():
@@ -132,7 +131,7 @@ def get_saved_features(tracks, path = 'output/features.csv'):
         n_recovered_tracks = 0
         for track in features_df.index:
             features = features_df.loc[track, :]
-            if not features.isna().sum():          #if all the features are there
+            if not features.isna().sum():          # If all the features are there
                 track_features[track] = dict(features)
                 n_recovered_tracks += 1
         print(f"Added features for {n_recovered_tracks} tracks.")
