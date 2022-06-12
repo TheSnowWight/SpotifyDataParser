@@ -4,7 +4,7 @@ Extract your Spotify streaming history, connect to the Spotify API to acquire th
 
 Medium article from original author: https://towardsdatascience.com/get-your-spotify-streaming-history-with-python-d5a208bbcbd3
 
-## Dependencies:
+## Dependencies
 
 <ul>
 <li>Pandas: https://pandas.pydata.org/</li>
@@ -12,7 +12,7 @@ Medium article from original author: https://towardsdatascience.com/get-your-spo
 <li>Requests: https://requests.readthedocs.io/en/master/</li>
 </ul>
 
-# Instructions:
+# Instructions
 
 ## Virtual Environment Setup
   
@@ -33,7 +33,7 @@ Medium article from original author: https://towardsdatascience.com/get-your-spo
 
 2. Sign up at Spotify for Developers at https://developer.spotify.com/. Select 'Create an app'. From the app panel, take note of your Client ID and Client Secret. Then select 'Edit settings' and whitelist a link in Redirect URIs. If you don't have a site, http://localhost:portnumber/callback will do. Take note of this link too.
 
-Note! Keep these values as safe or safer as your Spotify login information
+**Note!!** Keep these values as safe or safer as your Spotify login information
 
 3. Open config.py and insert your Spotify username, Client ID, Client Secret and Redirect URI. You can leave the scope as is.
 
@@ -44,3 +44,5 @@ Note! Keep these values as safe or safer as your Spotify login information
 5. If you still miss IDs or features, you can run the script again and retry your luck with the API. Collected IDs and features are saved locally, so we don't make repeated requests. 
 
 6. Find your song history, complete with features, in 'output/final.csv'. Happy exploration! 
+
+7. You should disable/remove the app in-case you are not using it and in active use occasionally recycle the tokens. Information is not encrypted in anyway and anyone having access to your Client ID & Client Secret will have access to your Spotify account! 
