@@ -1,9 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Orig @author: vlad
-Modified: tsw
-"""
+# Orig @author: vlad
+# Modified: tsw
 
 import history
 import pandas as pd
