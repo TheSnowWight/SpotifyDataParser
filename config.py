@@ -1,13 +1,12 @@
 """
-Created on Wed Jan 29 10:29:55 2020
-
-@author: vlad
+Orig @author: vlad
+Forked by: tsw
 """
 
-#insert local parameters
+# Insert local parameters
 
 username = 'your-spotify-username'
 client_id ='your-client-id'
 client_secret = 'your-client-secret'
-redirect_uri = 'http://localhost:7777/callback'
+redirect_uri = 'http://localhost:6666/callback'
 scope = 'user-read-recently-played'
