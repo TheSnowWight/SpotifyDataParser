@@ -1,1 +1,15 @@
-
+# Example file - replace with yours
+[
+  {
+    "endTime" : "yyyy-mm-dd hh:mm",
+    "artistName" : "Firstname Lastname",
+    "trackName" : "Track name",
+    "msPlayed" : 12345
+  },
+  {
+    "endTime" : "yyyy-mm-dd hh:mm",
+    "artistName" : "Firstname Lastname",
+    "trackName" : "Track name",
+    "msPlayed" : 12345
+  }
+]
